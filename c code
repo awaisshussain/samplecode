@@ -1,0 +1,82 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct Student Student;
+
+struct Student
+{
+    char name[10];
+    char surname[12];
+    int mark;
+};
+
+void printStudent(Student s)
+{
+    printf("\n%s",s.name);
+    printf("\n%s",s.surname);
+    printf("\n%d",s.mark);
+}
+
+Student getStudent()
+{
+    Student s;
+    printf("\nEnter first name : ");
+    scanf("%s",&s.name);
+    printf("Enter surname : ");
+    scanf("%s",&s.surname);
+    printf("Enter mark : ");
+    scanf("%d",&s.mark);
+    return s;
+}
+
+Student changeMark(Student s, int newmk)
+{
+    s.mark = newmk;
+    return s;
+}
+
+void inputGroup(Student *gp, int sz)
+{
+    for(int i =0; i<sz; i++)
+    {
+        gp[i] = getStudent();
+    }
+}
+
+void printGroup(Student gp[], int sz)
+{
+    printf("\nStudent group");
+    for(int i =0; i<sz; i++)
+    {
+        printf("\nStudent %d ", i);
+        printStudent(gp[i]);
+    }
+    return gp;
+}
+
+void changeMarkInGp(Student* gp, int rf, int nm)
+{
+    gp[rf] = changeMark(gp[rf],nm);
+    return gp;
+}
+
+int main()
+{
+
+    Student group[100];
+    int size = 3;
+
+    inputGroup(group,3);
+    printGroup(group,3);
+
+    int ref, mark;
+    printf("\nChange mark");
+    printf("\nEnter student reference: ");
+    scanf("%d", &ref);
+    printf("Enter new mark: ");
+    scanf("%d", &mark);
+    changeMarkInGp(group, ref, mark);
+    printGroup(group, 3);
+
+    return 0;
+}
