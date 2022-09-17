@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=Shuttle
+comment0.text=\r\n\ A\ shuttle\ provides\ a\ one-way\ connection\ between\ two\ planets.\ It\r\n\ has\ a\ Shuttle\ code\ and\ information\ about\ both\ the\ source\ and\r\n\ the\ destination\ planet\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=jrnycode\ fmPlnt\ toPlnt
+comment1.target=Shuttle(java.lang.String,\ Planet,\ Planet)
+comment1.text=\ create\ a\ shuttle\r\n\ jrnycode\ \=\ journey\ code\r\n\ fmplnt\ \=\ From\ planet\r\n\ toplnt\ \=\ to\ planet\r\n
+comment2.params=
+comment2.target=java.lang.String\ getJourneyCode()
+comment2.text=\ return\ journey\ code\r\n
+comment3.params=
+comment3.target=Planet\ getFromPlanet()
+comment3.text=\ return\ from\ planet\r\n
+comment4.params=
+comment4.target=Planet\ getToPlanet()
+comment4.text=\ return\ to\ planet\r\n
+comment5.params=p
+comment5.target=boolean\ canTravel(Permit)
+comment5.text=\ compare\ to\ see\ if\ you\ can\ ride\ the\ shuttle\ \r\n
+comment6.params=pp
+comment6.target=java.lang.String\ transferPermit(Permit)
+comment6.text=\ return\ if\ the\ permit\ can\ or\ cant\ travel\r\n\ if\ not\ why\ it\ wasnt\ allowed\ \r\n
+comment7.params=
+comment7.target=java.lang.String\ toString()
+comment7.text=\ returns\ a\ string\ representing\ the\ information\ of\ the\ shuttles\r\n
+numComments=8

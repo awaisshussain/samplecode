@@ -1,0 +1,39 @@
+#BlueJ class context
+comment0.target=WISH
+comment0.text=\r\n\ interface\ WISH\ specifies\ requirements\ for\ 5COM1059\ (Sem\ B)\ 2022\r\n\ \r\n\ @author\ A.Marczyk\ \r\n\ @version\ 03/11/21\r\n
+comment1.params=
+comment1.target=java.lang.String\ toString()
+comment1.text=\r\n\ Returns\ the\ location\ and\ all\ \ details\ of\ all\ planets\ including\ the\ permits\r\n\ currently\ on\ each\ planet,\ or\ "No\ permits"\r\n\ @return\ location\ and\ details\ of\ all\ planets\ including\ location\ \r\n\ and\ all\ permits\ currently\ on\ each\ planet,\ or\ "No\ permits"\ \r\n
+comment10.params=
+comment10.target=java.lang.String\ getRichGuests()
+comment11.params=id
+comment11.target=void\ moveHome(int)
+comment12.params=
+comment12.target=void\ evacuateAll()
+comment13.params=
+comment13.target=java.lang.String\ listPlanetDetails()
+comment2.params=permitId
+comment2.target=java.lang.String\ getPermitDetails(int)
+comment2.text=Returns\ a\ String\ with\ details\ of\ a\ permit\r\n\ @param\ permitId\ -\ id\ number\ of\ the\ permit\r\n\ @return\ the\ details\ of\ the\ permit\ as\ a\ String,\ or\ "No\ such\ permit"\r\n
+comment3.params=ww
+comment3.target=int\ getPlanetNumber(java.lang.String)
+comment3.text=\ Given\ the\ name\ of\ a\ planet,\ returns\ the\ planet\ id\ number\r\n\ or\ -1\ if\ planet\ does\ not\ exist\r\n\ @param\ name\ of\ planet\r\n\ @return\ id\ number\ of\ planet\r\n
+comment4.params=
+comment4.target=java.lang.String\ getAllPermitsOnEachPlanet()
+comment4.text=Returns\ a\ String\ representation\ of\ permits\ on\ each\ planet.\r\n\ Include\ the\ name\ of\ the\ planet\ \r\n\ @return\ a\ String\ representation\ of\ permits\ on\ each\ planet.\r\n
+comment5.params=tr
+comment5.target=java.lang.String\ getPermitLocation(int)
+comment5.text=Returns\ the\ name\ of\ the\ planet\ which\ contains\ the\ specified\ permit\ or\ null\r\n\ @param\ tr\ -\ the\ specified\ permit\r\n\ @return\ the\ name\ of\ the\ Planet\ which\ contains\ the\ permit,\ or\ null\r\n
+comment6.params=planet
+comment6.target=java.lang.String\ getAllPermitsOnOnePlanet(java.lang.String)
+comment6.text=Returns\ a\ String\ representation\ of\ all\ the\ permits\ on\ specified\ planet\r\n\ @return\ a\ String\ representation\ of\ all\ permits\ on\ specified\ planet\r\n
+comment7.params=trId\ shtlCode
+comment7.target=boolean\ canTravel(int,\ java.lang.String)
+comment7.text=Returns\ true\ if\ a\ Permit\ is\ allowed\ to\ move\ using\ the\ shuttle,\ false\ otherwise\r\n\ A\ move\ can\ be\ made\ if\:\ \ \r\n\ the\ rating\ of\ the\ permit\ \ >\=\ the\ rating\ of\ the\ destination\ planet\r\n\ AND\ the\ destination\ planet\ is\ not\ full\r\n\ AND\ the\ permit\ has\ sufficient\ credits\r\n\ AND\ the\ permit\ is\ currently\ on\ the\ source\ planet\r\n\ AND\ the\ permit\ id\ is\ for\ a\ permit\ on\ the\ system\r\n\ AND\ the\ shuttle\ code\ is\ the\ code\ for\ a\ shuttle\ on\ the\ system\r\n\ @param\ trId\ is\ the\ id\ of\ the\ permit\ requesting\ the\ move\r\n\ @param\ shtlCode\ is\ the\ code\ of\ the\ shuttle\ journey\ by\ which\ the\ permit\ wants\ to\ pPermitel\r\n\ @return\ true\ if\ the\ permit\ is\ allowed\ on\ the\ shuttle\ journey,\ false\ otherwise\ \r\n
+comment8.params=permitId\ shtlCode
+comment8.target=java.lang.String\ travel(int,\ java.lang.String)
+comment8.text=Returns\ the\ result\ of\ a\ permit\ requesting\ to\ move\ by\ Shuttle.\r\n\ A\ move\ will\ be\ successful\ if\:\ \ \r\n\ the\ luxury\ rating\ of\ the\ permit\ \ >\=\ the\ luxury\ rating\ of\ the\ destination\ planet\r\n\ AND\ the\ destination\ planet\ is\ not\ full\r\n\ AND\ the\ permit\ has\ sufficient\ credits\r\n\ AND\ the\ permit\ is\ currently\ on\ the\ source\ planet\r\n\ AND\ the\ permit\ id\ is\ for\ a\ permit\ on\ the\ system\r\n\ AND\ the\ shuttle\ code\ is\ the\ code\ for\ a\ shuttle\ on\ the\ system\r\n\ If\ the\ shuttle\ journey\ can\ be\ made,\ the\ permit\ information\ is\ removed\ from\ the\ source\r\n\ planet,\ added\ to\ the\ destination\ planet\ and\ a\ suitable\ message\ returned.\r\n\ If\ shuttle\ journey\ cannot\ be\ made,\ the\ state\ of\ the\ system\ remains\ unchanged\r\n\ and\ a\ message\ specifying\ the\ reason\ is\ returned.\r\n\ @param\ pPermitId\ is\ the\ id\ of\ the\ permit\ requesting\ the\ move\r\n\ @param\ shtlCode\ is\ the\ code\ of\ the\ shuttle\ journey\ by\ which\ the\ permit\ wants\ to\ pPermitel\r\n\ @return\ a\ String\ giving\ the\ result\ of\ the\ request\ \r\n
+comment9.params=id\ creds
+comment9.target=void\ topUpCredits(int,\ int)
+comment9.text=\ Allows\ a\ permit\ to\ top\ up\ their\ credits.This\ method\ is\ not\ concerned\ with\ \r\n\ \ the\ cost\ of\ a\ credit\ as\ currency\ and\ prices\ may\ vary\ between\ resorts.\r\n\ \ @param\ id\ the\ id\ of\ the\ permit\ toping\ up\ their\ credits\r\n\ \ @param\ creds\ the\ number\ of\ credits\ purchased\ to\ be\ added\ to\ permits\ information\r\n
+numComments=14
