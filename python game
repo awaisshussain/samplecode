@@ -1,0 +1,318 @@
+import turtle#importing turtle
+print("welcome to snakes and ladders!!!!!!!!")#print command
+print("please wait for the game to commence")
+# BOARD
+t1=turtle.Turtle()#assigning turtle
+t1.speed(0)#speed of turtle
+t1.pensize(1)#size of lines for the grid
+t1.penup()#pen is lifted (stop drawing)
+for i in range (6):#making lines for x axsis
+    t1.goto(-250,-250+(100*i))#point for turtle to go
+    t1.pendown()#pen is put down (start drawing)
+    t1.forward(500)#the turtle will go forward 500 places
+    t1.penup()#pen is lifted (stop drawing)
+t1.left(90) #chaning where the turtle is facing(to make horizontal lines)
+for i in range (6):#making lines for y axsis              
+    
+     t1.goto(-250+(100*i), -250)#same as x axsis
+     t1.pendown()
+     t1.forward(500)
+     t1. penup()
+
+
+#NUMBERS ON BOARD
+t1. right(90)#turing turtle to face the right way
+t1.goto(-245,-245)#takign turtle to correct possition
+for i in range (1, 26):#range command with "i" as the variable
+    t1.write(i)# writing the verable "i" and will comtinue writing till it is no longer in range.
+    t1.forward(100)#going to next box to write the next number in the range "i"
+    if i% 10==0:# modulo(remander of left devided by the right) this will execute when it reaches the left side of the board
+        t1.right(90)#from here the code is to make the turtle go to the next row on top
+        t1.forward(100)
+        t1.right(90)
+        t1.forward(100)
+    elif i% 5==0:
+        t1.left(90)#this part is to for the right side of the board
+        t1.forward(100)
+        t1.left(90)
+        t1.forward(100)
+
+#SNAKES and LADDERS
+t2=turtle.Turtle()#variables
+t3=turtle.Turtle()
+t4=turtle.Turtle()
+t5=turtle.Turtle()
+t6=turtle.Turtle()
+
+turtle.addshape("snake.gif")#this part of the code is to add the snake gif to the table and to the right location
+t1.shape("snake.gif")
+t1.penup()
+t1.goto(100,100)
+t1.pendown()
+
+
+turtle.addshape("snake2.gif")#this part of the code is to add the second snake gif to the table and to the right location
+t2.shape("snake2.gif")
+t2.penup()
+t2.goto(5,-145)
+t2. pendown()
+
+turtle.addshape("snake3.gif")#this part of the code is to add the third snake gif to the table and to the right location
+t3.shape("snake3.gif")
+t3.penup()
+t3.goto(-192,-50)
+t3. pendown()
+
+turtle.addshape("ladder.gif")#this part of the code is to add the ladder gif to the table and to the right location
+t4.shape("ladder.gif")
+t4.penup()
+t4.goto(15,150)
+t4. pendown()
+
+turtle.addshape("ladder2.gif")#this part of the code is to add the secound ladder gif to the table and to the right location
+t5.shape("ladder2.gif")
+t5.penup()
+t5.goto(-92,-50)
+t5. pendown()
+
+turtle.addshape("ladder3.gif")#this part of the code is to add the third ladder gif to the table and to the right location
+t6.shape("ladder3.gif")
+t6.penup()
+t6.goto(223,-104)
+t6. pendown()
+
+#CHARACTER
+t7=turtle.Turtle()#variable
+t8=turtle.Turtle()
+
+
+turtle.addshape("cow.gif")#this adds the cow gif to the table
+player_name_1 = turtle.textinput("NAME", "Name of first player:")#this part is to ask for the names of the players so that it can be named a variable
+t7.shape("cow.gif")
+t7.penup()#the pen is placed up so that when the cow moves it doesnt draw a line behind it
+t7.goto(-200,-230)#this takes the cow to the correct location on the board
+
+print("welcome",player_name_1)#this welcomes the player to the game with the vaiable of the players name
+
+turtle.addshape("bull.gif")
+player_name_2 = turtle.textinput("NAME", "Name of secound player:")
+t8.shape("bull.gif")
+t8.penup()
+t8.goto(-200,-170)
+
+print("welcome",player_name_2)
+#DICE AND PLAYER MOVEMENT
+t9=turtle.Turtle()#variable
+t9.hideturtle()#this is to hide the turle so it cannot be seen before it is used
+t10=turtle.Turtle()
+t10.hideturtle()
+#VARIABLES
+import random#import random so it can pick a number form the range 1 to 6
+player_1_possition = 1#this is telling the program where the player are starting
+player_2_possition = 1
+num = 0#this willl be used so when the number is odd player 1 will go and when even player 2 will go. this is used so the program knows whos turn it is
+count = 0#this will be used for the dice 
+#LOOPS AND DICE ROLL
+loop = True#this will be used for the while loop
+while loop:#while it is ture the dice will keep rolling
+    if (count % 2) == 0:#if number equals odd then it will be players 1's turn
+        (input(print(player_name_1,"press enter to roll")))
+    if (count % 2) == 1:#if numebr equals even then it will be player 2's turn
+        (input(print(player_name_2,"press enter to roll")))
+    number = random.randint(1, 6)#this will pick the random number
+    if number == 1:#if the dice will be equal to one this program will run
+        t9.showturtle()#this will show the turtle that was hidden from before and now will be assigned to the correct dice depending on what has been picked by the computer
+        turtle.addshape("dice1.gif")
+        t9.shape("dice1.gif")
+        t9.penup()#pen up and down was used to make sure that no lines was drawn while the dice was moving   
+        t9.goto(-300,0)#move the dice to the correct location
+        t9.pendown()
+    if number == 2:#if the dice will be equal to two this program will run
+        t9.showturtle()
+        turtle.addshape("dice2.gif")
+        t9.shape("dice2.gif")
+        t9.penup()   
+        t9.goto(-300,0)
+        t9.pendown()
+    if number == 3:#if the dice will be equal to three this program will run
+        t9.showturtle()
+        turtle.addshape("dice3.gif")
+        t9.shape("dice3.gif")
+        t9.penup()   
+        t9.goto(-300,0)
+        t9.pendown()
+    if number == 4:#if the dice will be equal to four this program will run
+        t9.showturtle()
+        turtle.addshape("dice4.gif")
+        t9.shape("dice4.gif")
+        t9.penup()   
+        t9.goto(-300,0)
+        t9.pendown()
+    if number == 5:#if the dice will be equal to five this program will run
+        t9.showturtle()
+        turtle.addshape("dice5.gif")
+        t9.shape("dice5.gif")
+        t9.penup()   
+        t9.goto(-300,0)
+        t9.pendown()
+    if number == 6:#if the dice will be equal to six this program will run
+        t9.showturtle()
+        turtle.addshape("dice6.gif")
+        t9.shape("dice6.gif")
+        t9.penup()   
+        t9.goto(-300,0)
+        t9.pendown()
+    count = count + 1#after the program has been run it will add one to the count and then run again and this will help to make sure the computer knows whos turn it is
+    #PLACEMENT AND MOVEMENT PLAYER 1
+    if (num % 2) == 0:#when the vaiable num is odd then this will run 
+        for a in range (0, number):#this will tell the program where the player is     
+            if player_1_possition% 10==0:#if the player reaches the end of the board then this program will run to make the player face the right way on the board(left side of board)
+                t7.right(90)
+                t7.forward(100)
+                t7.right(90)
+            elif player_1_possition% 5==0:#same pricable but right side of the board
+                t7.left(90)
+                t7.forward(100)
+                t7.left(90)
+            else:
+                t7.forward(100*1)#if it does not next to be moved because it has reached the end of the board then it will move forward one at a time
+            player_1_possition = player_1_possition + 1#the players are moved forward one at a time so the computer can update where the players are one at a time          
+            if player_1_possition ==  25:#this will run if the player reaches grid number 25 ans it will show the win gif
+                t10.showturtle()
+                turtle.addshape("win.gif")
+                t10.shape("win.gif")
+                print(player_name_1,"WINS!")
+                repeat = input("would you like to run again? yes/no")#this will be run everytime when either player finishes the game and asks if the player wants to play again
+                if repeat == "yes":#if the player says yes then
+                    t10.undo()#the win gif is removed
+                    t7.goto(-200,-230)#both players are taken back to possition one
+                    t8.goto(-200,-170)
+                    player_1_possition = 1#possition is updated so the computer knows where the players are
+                    player_2_possition = 1
+                    continue
+                else:
+                    print ("bye")#if the player says anything other than yes then the program will exit(close)
+                    exit()
+
+        #LADDERS
+            #LADDER1
+        if player_1_possition == 5:#if the player lands on the square 5 then this program will be run
+            t7.left(90)
+            t7.forward(200)
+            t7.right(90)#the program will move the player to the according places and then make the player face the right way
+            player_1_possition = 15#the program will then update the computer on where the player now is located on the board
+            #LADDER2
+        if player_1_possition == 9:#if the player lands on the square 9 then the same type of program is run
+            t7.right(90)
+            t7.forward(100)
+            t7.right(90)
+            player_1_possition = 12
+            #LADDER3
+        if player_1_possition == 18:#if the player lands on the square 18 then the same type of program is run
+            t7.right(90)
+            t7.forward(100)
+            t7.right(90)
+            player_1_possition = 23
+        #SNAKES
+            #SNAKE1
+        if player_1_possition == 8:#if the player lands on the square 8 then the same type of program is run only difference is that the snake is moving the player back on the board
+            t7.left(90)
+            t7.forward(100)
+            t7.left(90)
+            player_1_possition = 3
+            #SNAKE2
+        if player_1_possition == 20:#if the player lands on the square 20 then the same type of program is run
+            t7.left(90)
+            t7.forward(300)
+            t7.left(90)
+            player_1_possition = 1
+            #SNAKE3
+        if player_1_possition == 24:#if the player lands on the square 24 then the same type of program is run
+            t7.right(90)
+            t7.forward(200)
+            t7.left(90)
+            player_1_possition = 14
+
+
+        print (player_name_1,"is on square",player_1_possition)#this will print where the players name and where the player is on the board
+
+        
+    #PLACEMENT AND MOVEMENT PLAYER 2
+    if (num % 2) == 1:#same as player 1 the same kind of princable is used here for player 2's movement but when variable num is even this varabel will run
+        for b in range (0, number):
+            if player_2_possition% 10==0:
+                t8.right(90)
+                t8.forward(100)
+                t8.right(90)
+            elif player_2_possition% 5==0:
+                t8.left(90)
+                t8.forward(100)
+                t8.left(90)
+            elif player_2_possition > 25:
+                t8.left(180)
+                t8.forward(100)
+            else:
+                t8.forward(100*1)
+            player_2_possition = player_2_possition + 1
+            
+            
+            
+            if player_2_possition == 25:
+                t10.showturtle()
+                turtle.addshape("win.gif")
+                t10.shape("win.gif")
+                print(player_name_2,"WINS!")
+                repeat = input("would you like to run again? yes/no:")
+                if repeat == "yes":
+                    t10.undo()
+                    t7.goto(-200,-230)
+                    t8.goto(-200,-170)                    
+                    player_1_possition = 1
+                    player_2_possition = 1
+                    continue
+                else:
+                    print ("bye")
+                    exit()
+        #LADDERS
+            #LADDER1
+        if player_2_possition == 5:#same as player 1 the same princable is done for player 2
+            t8.left(90)
+            t8.forward(200)
+            t8.right(90)
+            player_2_possition = 15
+            #LADDER2
+        if player_2_possition == 9:
+            t8.right(90)
+            t8.forward(100)
+            t8.right(90)
+            player_2_possition = 12
+            #LADDER3
+        if player_2_possition == 18:
+            t8.right(90)
+            t8.forward(100)
+            t8.right(90)
+            player_2_possition = 23
+        #SNAKES
+            #SNAKE1
+        if player_2_possition == 8:
+            t8.left(90)
+            t8.forward(100)
+            t8.left(90)
+            player_2_possition = 3
+            #SNAKE2
+        if player_2_possition == 20:
+            t8.left(90)
+            t8.forward(300)
+            t8.left(90)
+            player_2_possition = 1
+            #SNAKE3
+        if player_2_possition == 24:
+            t8.right(90)
+            t8.forward(200)
+            t8.left(90)
+            player_2_possition = 14
+
+            
+        print (player_name_2,"is on square",player_2_possition)#this will print where the players name and where the player is on the board
+
+    num = num+1#this will add one to the variable num so that now when the program is run again the number will change from odd to even or vica verca and the compuer will allow for the other player to have a turn.
