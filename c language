@@ -1,0 +1,210 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+//********************** function definitions ****************
+
+// task 2 - define a function
+float triangleArea(float base, float hgt)
+{
+   float area =  0.5 * base * hgt;
+   return area;
+}
+
+// task 5 - define a function
+float squareArea(float sd)
+{
+    return  sd * sd;
+}
+
+
+// task 9.1 - output elements in the array
+//size - is the size of the array which MUST be passed in as a parameter
+void printResults(float len[], int size)
+{
+    for(int i = 0; i <size; i++)
+    {
+        printf("\n%d  %f", i, len[i]);
+    }
+}
+
+// task 9.2 - input into an array
+void inputLengths(float len[], int size)
+{
+    for(int i = 0; i <size; i++)
+    {
+        printf("Enter length %d  ", i);
+        scanf("%f", &len[i]);
+    }
+}
+
+
+// task 9.3 - process each element in the array
+void calcAreas(float len[], int size)
+{
+    for(int i = 0; i < size; i++)
+    {
+        len[i] = len[i] * len[i];
+        //OR len[i] = squareAreas(len[i]);
+    }
+}
+
+// task 10.1 - output elements in the array
+//size - is the size of the array which MUST be passed in as a parameter
+void printResults2(float *len, int size)
+{
+    for(int i = 0; i <size; i++)
+    {
+        printf("\n%d  %f", i, *len++);   //or  *(len + i),
+    }
+}
+
+// task 10.2 - input into an array
+void inputLengths2(float *len, int size)
+{
+    for(int i = 0; i <size; i++)
+    {
+        scanf("%f", len + i);     // or len + i
+    }
+}
+
+
+// task 10.3 - process each element in the array
+void calcAreas2(float *len, int size)
+{
+    for(int i = 0; i < size; i++)
+    {
+        // lots of ways to do this
+        *len = *len * *len;  // watch out for those stars
+        //OR
+        //*len = squareArea(*len);
+        len++;
+        // OR without len++
+        // *(len+i) = *(len+i) * *(len+ i);
+        // OR
+        // *(len+i) = squareArea(*(len+i));
+        //OR even just:  len[i] = len[i] * len{i};
+
+    }
+}
+
+
+//********************** main program ************************
+
+int main()
+{
+    // task 1.1 - declare and set values of two variables
+    float base1 = 8.5;
+    float height1 = 5;
+
+
+    // task 1.2 - use variables to calculate and output to 2dp
+    float triangle = 0.5 * base1 * height1;
+    printf("Area of triangle = %.2f", triangle);  //should be 18.75
+
+
+    // task 3 - call a defined function triangle area ( see above)
+    float trarea = triangleArea(base1, height1);
+    printf("\nArea of triangle with base %.2f and height %.2f = %.2f", base1, height1, trarea);
+
+
+    // task 4 - call above function/s to calculate a result
+    float smallBase = base1 /2;
+    float smallTr = triangleArea(smallBase , height1);
+    float shapeArea = trarea + 2 * smallTr;
+    printf ("\nShape area = %.2f",shapeArea);
+
+
+    // task 6 - menu selection
+    int choice;
+    printf("\n 1 Area of triangle");
+    printf("\n 2 Area of square");
+    printf("\nEnter your choice ");
+    scanf("%d", &choice);
+
+    float base,height,area;
+    if (choice == 1)
+    {
+        printf("\nEnter base ");
+        scanf("%f", &base);
+        printf("\nEnter height ");
+        scanf("%f", &height);
+        area = triangleArea(base,height);
+    }
+    else{
+        printf("\nEnter side length ");
+        scanf("%f", &height);
+        area = squareArea(height);
+    }
+    printf("\nArea is %.2f \n",area);
+
+
+    // task 7 - declare an array of fixed values
+    float lengths[] = {6, 1, 5,  0, 2.5} ;
+
+
+    // task 8 -  process each element in the array
+    for(int i = 0; i <5; i++)
+    {
+        float area;
+        area = squareArea(lengths[i]);
+        printf("\n%.2f", area);
+    }
+
+    // task 9 - tests
+    float myArray[4];
+    // for flexibility
+    int sz = sizeof(myArray)/sizeof(myArray[0]);
+    printf("\nEnter array: \n");
+    inputLengths(myArray, sz);  //for a test you can use 4
+    printf("\nYour array: \n");
+    printResults(myArray, 4);
+    printf("\nSquares\n: ");
+    calcAreas(myArray, sz);
+    // for a check
+    printResults(myArray, 4);
+
+    // task 10 - tests
+    float myArray2[4];
+    // for flexibility
+    int sz2 = sizeof(myArray2)/sizeof(myArray2[0]);
+    printf("\npointer arrays\n");
+    inputLengths(myArray2, sz2);  //for a test you can use 4
+    printResults(myArray2, 4);
+    calcAreas(myArray2, sz2);
+    // for a check
+    printf("\nSquares\n: ");
+    printResults(myArray2, 4);
+
+
+    // task 11 - pointer processing
+    float *myLength;
+    //allocate memory space
+    myLength = (float*)malloc(sizeof(float));
+
+    printf("\nEnter value");
+    // myLength hold an address so no need for &
+    scanf("%f", myLength);
+
+    // output value at pointer
+    printf("\nValue: %.2f", *myLength);
+    // output value of pointer
+    printf("\nPointer: %p", myLength);
+    // print pointer (adds 3*sizeof(float)
+    myLength = myLength + 3;
+    printf("\nPointer + 3: %p", myLength);
+
+    // pointer value has changed, so the following unknowable
+    printf("\nValue: %.2f", *myLength);
+
+//    //Try testing 11
+//    float myArrayT[4] ;
+//    int szT = sizeof(myArrayT)/sizeof(myArrayT[0]);
+//    inputLengths2(myArrayT, 4);
+//    printResults2(myArrayT, 4);
+//    calcAreas2(myArrayT, 4);
+//    printResults2(myArrayT, 4);
+
+
+
+    return 0;
+}  // end of main
