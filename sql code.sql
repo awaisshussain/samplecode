@@ -1,26 +1,17 @@
 
--- TASK ONE - ADDING DATA - 16 marks in total
+-- TASK ONE - ADDING DATA 
 -- ======================
---
--- You must add the following data to that already inserted into the 6 table
--- schema.
--- DO NOT remove any existing records
---
--- ADD the following:
---
---  1 - Create a yourself as a member of staff which includes your name and where
---      the Employee_No is  your SRN. The remaining attributes can be data you make
---      up. There should be no duplication between your SRN and the data in the
---      dataset, but if this does occur, add 1 to your SRN.
+--  1 - Create a yourself as a member of staff which includes your name and
+--      the Employee_No.
 --      You can choose which cinema you are employed at unsupervised!!
---                                                                  [ 4 marks ]
+--                                                                 
 INSERT INTO a2_staff (employee_no, name, address, phone_no, DOB, date_joined, salary, supervisor, cinema)
-VALUES ('19031526','Awais Hussain','75a, Sandley Towers, Sandley', '09623897336', TO_DATE('27/03/2002', 'DD/MM/YYYY'), TO_DATE('11/01/2021','DD/MM/YYYY'), 68347, null, 'Odeon on the Hill');
+VALUES ('190316','Awais Hussain','75a, Sandley Towers, Sandley', '09623897336', TO_DATE('27/03/2002', 'DD/MM/YYYY'), TO_DATE('11/01/2021','DD/MM/YYYY'), 68347, null, 'Odeon on the Hill');
 --  2 - Create two showings at a cinema and screen of your choice from the database.
 --
 --      Showing 1 MUST contain a single performance of a new film you must also add
 --      to the film table. 
---						  						                    [ 6 marks ]
+--						  						                   
 INSERT INTO a2_film (film_no, film_name, classification, duration, description, year_released)
 VALUES ('15836667', 'Bad boys II', '15', 147, 'the film follows detectives Burnett and Lowrey investigating the flow of illegal drugs going into Miami.', TO_DATE('2003', 'YYYY'));
 INSERT INTO a2_showing (showing_no, cinema, screen, film_no)
@@ -29,7 +20,7 @@ INSERT INTO a2_performance (showing_no, performance_date, performance_time, taki
 VALUES ('193365', TO_DATE('07/12/2021', 'DD/MM/YYYY'), TO_DATE('19:15', 'HH24:MI'), 22280, 190);
 --  3 - Showing 2 MUST contain three performances of a film already in the
 --      database showing on consecutive days.
---								  				                    [ 6 marks ]
+--								  				                   
 INSERT INTO a2_showing (showing_no, cinema, screen, film_no)
 VALUES ('194458', 'Odeon on the Hill', 1,'88854033');
 INSERT INTO a2_performance (showing_no, performance_date, performance_time, takings, attendees)
@@ -38,33 +29,9 @@ INSERT INTO a2_performance (showing_no, performance_date, performance_time, taki
 VALUES ('194458', TO_DATE('11/12/2021', 'DD/MM/YYYY'), TO_DATE('21:00', 'HH24:MI'), '2128', '190');
 INSERT INTO a2_performance (showing_no, performance_date, performance_time, takings, attendees)
 VALUES ('194458', TO_DATE('12/12/2021', 'DD/MM/YYYY'), TO_DATE('21:00', 'HH24:MI'), '2128', '190');
---  NOTES:
---	Its a good idea to store your final INSERT commands in a script file
 --
---	If during this process, you corrupt the dataset, go back and use the
---      script downloaded to reset the original tables and data
---
---	Once you are happy ALL INSERTS are correct, it may be a good idea to
---      run the two scripts ( supplied and yours) again to refresh the
---      dataset before starting Task 2
---
--- END OF TASK ONE ----------------------------------------------------
---
---
--- TASK TWO - QUERYING  [ 7 marks per query ] 84 in total
+-- TASK TWO - QUERYING  
 -- ===================
---
--- For this task use SQL Developer to build queries that provide the correct
--- answer to the question asked. Once the query is correct, COPY THE CODE INTO
--- THE SPACES PROVIDED. Answer as many questions if you can.
---
--- Hints are provided to help you understand what is needed
---
--- Solution Tests indicate how the output should appear if correct and contains
--- formatting guidance.
---
--- Submission instructions are given at the end of this file.
---
 --
 -- QUESTION 1
 -- ==========
@@ -136,13 +103,13 @@ WHERE employee_no = (SELECT supervisor
 
 -- FILM_NAME                   Performances Total Takings         
 -- --------------------------- ------------ ----------------------
--- It Happened One Night       39               £63,571 
--- Modern Times                38               £58,332 
--- Parasite                    23               £37,195 
--- Knives Out                  22               £34,362 
--- Citizen Kane                25               £32,711 
--- The Wizard of Oz            18               £21,716 
--- Avengers: Endgame           18               £17,081
+-- It Happened One Night       39               Â£63,571 
+-- Modern Times                38               Â£58,332 
+-- Parasite                    23               Â£37,195 
+-- Knives Out                  22               Â£34,362 
+-- Citizen Kane                25               Â£32,711 
+-- The Wizard of Oz            18               Â£21,716 
+-- Avengers: Endgame           18               Â£17,081
 --
 -- Type your query below:
 SELECT f.film_name AS "Film Name", COUNT(s.showing_no) AS Performances, TO_CHAR(SUM(p.takings), 'L99G999') AS "Total Takings"
@@ -161,13 +128,13 @@ order by SUM(p.takings) desc ;
 --
 -- Cinema                         Takings on August 12  
 -- ------------------------------ ----------------------
--- Masterton Multiplex            £5,731 
--- The Glory Showhouse            £2,424 
--- Grange Cinema                  £1,974 
--- Treban Picturehouse            £1,719 
--- Marvale Rex                    £1,005
+-- Masterton Multiplex            Â£5,731 
+-- The Glory Showhouse            Â£2,424 
+-- Grange Cinema                  Â£1,974 
+-- Treban Picturehouse            Â£1,719 
+-- Marvale Rex                    Â£1,005
 --
--- Hint: Use the format operator (L) to create the use of the £
+-- Hint: Use the format operator (L) to create the use of the Â£
 -- symbol.
 --
 -- Solution Test: 
@@ -244,13 +211,13 @@ ORDER BY 4,1;
 -- Solution Test: 
 -- FILM_NAME  CINEMA                                             Takings per seat Takings per person   
 -- ---------- -------------------------------------------------- ---------------- ------------------
--- Casablanca Marvale Rex                                                   £9.62             £12.81 
--- Casablanca The Glory Showhouse                                          £12.14             £12.67 
--- Casablanca Treban Picturehouse                                          £10.87             £13.31 
--- Casablanca Grange Cinema                                                £15.02             £19.25 
+-- Casablanca Marvale Rex                                                   Â£9.62             Â£12.81 
+-- Casablanca The Glory Showhouse                                          Â£12.14             Â£12.67 
+-- Casablanca Treban Picturehouse                                          Â£10.87             Â£13.31 
+-- Casablanca Grange Cinema                                                Â£15.02             Â£19.25 
 --
 -- Type your query below:
-SELECT distinct f.film_name, s.cinema,'£' || cast(SUM(p.takings)/SUM(sc.capacity) AS decimal(5,2)) AS "Takings per seat", '£' || cast(SUM(p.takings)/SUM(p.attendees) AS decimal(5,2)) AS "taking per person"
+SELECT distinct f.film_name, s.cinema,'Â£' || cast(SUM(p.takings)/SUM(sc.capacity) AS decimal(5,2)) AS "Takings per seat", 'Â£' || cast(SUM(p.takings)/SUM(p.attendees) AS decimal(5,2)) AS "taking per person"
 FROM ((((a2_showing s INNER JOIN a2_film f ON (f.film_no = s.film_no))
                 INNER JOIN a2_cinema c ON (c.cinema_name = s.cinema))
                 INNER JOIN a2_screen sc ON (sc.cinema = s.cinema AND sc.screen = S.screen))
@@ -341,10 +308,7 @@ SELECT s.showing_no, f.film_name, s.cinema, s.screen, TO_CHAR(MIN(p.performance_
 FROM a2_film f JOIN a2_showing s ON (f.film_no = s.film_no) JOIN a2_performance p ON (s.showing_no = p.showing_no) 
 WHERE s.showing_no = '194458' 
 GROUP BY s.showing_no, f.film_name, s.cinema, s.screen;
--- END OF TASK TWO ---------------------------------------------------
-
---
--- END OF FILE ==================================================================
+-- END OF TASK TWO --------------------------------------
 
 
 
